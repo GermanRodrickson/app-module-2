@@ -5,56 +5,51 @@ const router = express.Router();
 const Match = require('../models/matches');
 
 router.get('/', (req, res, next) => {
-  res.render('cards/cards');
+  if (req.session.currentUser) {
+    res.render('cards/cards');
+  } else {
+    res.redirect('/auth/login');
+  }
 });
 
-// Reject
+// MATCH REQUESTS
 
-router.post('/:receiverId/no', (req, res, next) => {
-  const criteria = {
-    receiver: req.session.currentUser._id
-  };
-  Match.find(criteria).then(result => {
-    if (!result) {
-      const match = new Match({
-        sender: req.session.currentUser._id,
-        receiver: req.params.receiverId,
-        status: 'rejected'
-        // spot: objetid del usuario aceptado
-      })
-        .save();
-    }
-    res.redirect('/cards');
-  })
-    .catch(next);
-});
+router.post('/:receiverId', (req, res, next) => {
+  const choice = req.body.choice === 'yes';
 
-// Accept
+  if (choice) { // If user chooses YES
+    Match.find({receiver: req.session.currentUser._id})
+      .then((result) => {
+        // If there is no result, create a new match with pending status.
+        if (!result) {
+          const match = new Match({
+            sender: req.session.currentUser,
+            receiver: req.params.receiverId,
+            status: 'pending'
+          });
+          match.save()
+            .then(
+              res.redirect('/cards')
+            );
+        }
 
-router.post('/:receiverId/yes', (req, res, next) => {
-  const criteria = {
-    receiver: req.session.currentUser._id,
-    status: 'pending'
-  };
-  Match.find(criteria).then(result => {
-    if (!result) {
-      const match = new Match({
-        sender: req.session.currentUser._id,
-        receiver: req.params.receiverId,
-        status: 'pending'
-        // spot: objetid del usuario aceptado
-      });
-
-      match.save()
-        .then(() => {
+        // If we are rejected, we go back to the cards page.
+        if (result.status === 'rejected') {
           res.redirect('/cards');
-        });
-    } else if (result.status === 'pending') {
-      result.status = 'accepted';
-      // res.something!
-    }
-  })
-    .catch(next);
+          return;
+        }
+
+        // If we have a pending request, accept it and set our name in the match database.
+        if (result.status === 'pending') {
+          result.status = 'accepted';
+          result.receiver = req.session.currentUser;
+
+          // res.redirect(); <-- REDIRECT TO MATCH INFO
+        }
+      });
+  } else { // If user chooses NO
+
+  }
 });
 
 module.exports = router;
