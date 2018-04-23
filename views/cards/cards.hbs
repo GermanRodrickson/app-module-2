@@ -1,0 +1,20 @@
+<section>
+  <div class = "profile-img">
+    <img src="./images/Man_Silhouette.png">
+  </div>
+  <div>
+    {{user.username}}
+    {{!-- {{user.age}} --}}
+  </div>
+  <div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio inventore aspernatur cupiditate modi explicabo sint doloremque, maiores numquam reiciendis eius, autem dolore rerum nostrum recusandae corrupti accusamus rem nesciunt ducimus.</p>
+  </div>
+  <div>
+    <form method="POST" action="/cards/{{user._id}}">
+        <input type="checkbox" name="no" value="no" onchange="this.form.submit()">
+        <em>No</em>
+        <input type="checkbox" name="yes" value="yes" onchange="this.form.submit()">
+        <em>Yes</em>
+    </form>
+  </div>
+</section>

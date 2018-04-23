@@ -11,21 +11,21 @@
 </head>
 
 <body>
-  <nav id ="navbar">
+  <nav id="navbar">
     <div class="nav-left">image</div>
     {{#if user}}
     <div class="nav-right">
-    <a href="/profile">{{user.username}}</a>
+      <a href="/profile">{{user.username}}</a>
       <form method="POST" action="/auth/logout">
         <div class="field submit">
           <button type="submit" class="button">Log out</button>
         </div>
       </form>
     </div>
-    {{/if}}
-    {{#unless user}}
+    {{/if}} {{#unless user}}
     <div class="nav-right">
-      <a href="/auth/signup">signup</a><a href="/auth/login">login</a>
+      <a href="/auth/signup">signup</a>
+      <a href="/auth/login">login</a>
     </div>
     {{/unless}}
   </nav>
