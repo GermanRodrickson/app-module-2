@@ -1,0 +1,28 @@
+body {
+  font-family: monospace;
+  font-size: 147%;
+  background-color:black;
+}
+
+.container {
+  margin: 20px 30px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.colors {
+  width: 200px;
+  height: 100px;
+  color:white;
+  text-align: center;
+  display: inline-block;
+}
+
+.button {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 155);
+  color:white;
+}

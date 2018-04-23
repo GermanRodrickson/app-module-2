@@ -6,9 +6,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 
 <body>
+  <nav>
+    <div>image</div>
+    {{#if user}}
+    <div class="nav-right">
+    <div><a href="/profile">{{this.username}}</a>
+      <form method="POST" action="/auth/logout">
+        <div class="field submit">
+          <button type="submit">Log out</button>
+        </div>
+      </form>
+    </div>
+    {{/if}}
+    {{#unless user}}
+    <div class="nav-rigth">
+      <a href="/auth/signup">signup</a><a href="/auth/login">login</a>
+    </div>
+    {{/unless}}
+  </nav>
   {{{body}}}
 </body>
 
