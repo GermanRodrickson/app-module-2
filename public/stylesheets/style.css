@@ -18,9 +18,14 @@ body {
 
 body {
   color: #111;
-  /* font-family: Helvetica, Arial, sans-serif; */
-  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
   line-height: 147%;
+}
+
+.title {
+  font-family: 'Lobster', cursive;
+  font-size: 100px;
 }
 
 p {
@@ -30,3 +35,45 @@ p {
 
 
 /* ---- layout ---- */
+
+
+/*NAV BAR*/
+#navbar, #footer{
+  width: 100%;
+
+  padding: 20px;
+  background-color: #32C3FF;
+  border: 1px solid #ff5252;
+}
+
+#navbar a {
+  padding: 6px;
+  text-decoration: none;
+}
+
+.nav-left {
+  display: inline-block;
+}
+
+.nav-right {
+  display:flex;
+  float:right;
+}
+
+/*BODY*/
+.container {
+  margin: 20px 30px;
+  background-color: #ff5252;
+  border: 1px solid #32C3FF;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgb(0, 0, 155);
+  color:white;
+}

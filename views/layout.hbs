@@ -5,30 +5,38 @@
   <title>{{title}}</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
 </head>
 
 <body>
-  <nav>
-    <div>image</div>
+  <nav id ="navbar">
+    <div class="nav-left">image</div>
     {{#if user}}
     <div class="nav-right">
-    <div><a href="/profile">{{this.username}}</a>
+    <a href="/profile">{{user.username}}</a>
       <form method="POST" action="/auth/logout">
         <div class="field submit">
-          <button type="submit">Log out</button>
+          <button type="submit" class="button">Log out</button>
         </div>
       </form>
     </div>
     {{/if}}
     {{#unless user}}
-    <div class="nav-rigth">
+    <div class="nav-right">
       <a href="/auth/signup">signup</a><a href="/auth/login">login</a>
     </div>
     {{/unless}}
   </nav>
-  {{{body}}}
+
+  <section class="container">
+    {{{body}}}
+  </section>
+
+  <footer id="footer">
+    Created and designed by Germán and Matias.
+  </footer>
 </body>
 
 </html>
