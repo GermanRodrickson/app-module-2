@@ -18,16 +18,13 @@ router.post('/login', (req, res, next) => {
   User.findOne({ username: req.body.username })
     .then(result => {
       if (!result) {
-        console.log('nopeeeeeeeeeeeeeeeee');
         res.redirect('/auth/login');
         return;
       }
       if (bcrypt.compareSync(req.body.password, result.password)) {
-        console.log('yaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaz');
         req.session.currentUser = result;
-        res.redirect('/');
+        res.redirect('/cards');
       } else {
-        console.log('Password incoreect');
         res.redirect('/auth/login');
       }
     })
@@ -42,7 +39,6 @@ router.post('/signup', (req, res, next) => {
   User.findOne({ username: req.body.username })
     .then((result) => {
       if (result) {
-        console.log('nopeeeeeeeeeeeeeeeeeeeeeeeee');
         return res.redirect('/auth/signup');
       }
 
@@ -57,7 +53,7 @@ router.post('/signup', (req, res, next) => {
         .save()
         .then((result) => {
           req.session.currentUser = result;
-          res.redirect('/');
+          res.redirect('/cards');
         })
         .catch(next);
     })

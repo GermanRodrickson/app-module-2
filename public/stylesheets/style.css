@@ -99,7 +99,7 @@ hr {
 }
 
 .social-media {
-  margin-top: 30px; 
+  padding-top: 30px; 
 }
 .social-media img {
   padding: 16px;
@@ -110,4 +110,11 @@ hr {
   color: white;
   border: 2px border white;
   border-radius: 30px;
+}
+.match-info img {
+  float: left;
+}
+#map {
+  height: 50vh;
+  width: 130vh;
 }
