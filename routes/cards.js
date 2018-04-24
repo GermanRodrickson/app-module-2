@@ -31,10 +31,12 @@ router.post('/:receiverId', (req, res, next) => {
             .then(
               res.redirect('/cards')
             );
+          return;
         }
 
         // If we are rejected, we go back to the cards page.
         if (result.status === 'rejected') {
+          result.receiver = req.session.currentUser;
           res.redirect('/cards');
           return;
         }
@@ -45,10 +47,34 @@ router.post('/:receiverId', (req, res, next) => {
           result.receiver = req.session.currentUser;
 
           // res.redirect(); <-- REDIRECT TO MATCH INFO
+          return;
         }
       });
   } else { // If user chooses NO
 
+    Match.find({ receiver: req.session.currentUser._id })
+    .then((result) => {
+      // If no request, create match with 'rejected' status.
+      if (!result){
+        const match = new Match({
+          sender: req.session.currentUser,
+          receiver: req.params.receiverId,
+          status: 'rejected'
+        });
+        match.save()
+          .then(
+            res.redirect('/cards')
+          );
+        return;
+      }
+      // Change pending request to rejected
+      if (result.status != 'accepted'){
+        result.receiver = req.session.currentUser;
+        result.status = 'rejected';
+        res.redirect('/cards');
+        return;
+      }
+    }
   }
 });
 
