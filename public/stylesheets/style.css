@@ -40,10 +40,8 @@ p {
 /*NAV BAR*/
 #navbar, #footer{
   width: 100%;
-
   padding: 20px;
-  background-color: #32C3FF;
-  border: 1px solid #ff5252;
+  background-color:#32C3FF;
 }
 
 #navbar a {
@@ -62,18 +60,54 @@ p {
 
 /*BODY*/
 .container {
-  margin: 20px 30px;
-  background-color: #ff5252;
-  border: 1px solid #32C3FF;
+  background-color: #ffff;
   padding: 40px;
-  border-radius: 10px;
   text-align: center;
 }
 
 .button {
   padding: 10px;
-  border: 2px solid black;
+  border: none;
   border-radius: 10px;
-  background-color: rgb(0, 0, 155);
+  background-color: #ff5252; 
   color:white;
+  font-size: 15px;
+}
+#footer {
+  color:grey;
+}
+.quotes-people {
+  text-align: left;
+  margin-top: 50px;
+}
+
+.quotes-img {
+  text-align: center;
+}
+
+.span-name {
+  color:#ff5252;
+  font-style: none;
+}
+
+.title-text {
+  margin-bottom: 30px;
+}
+
+hr {
+  width: 50%;
+}
+
+.social-media {
+  margin-top: 30px; 
+}
+.social-media img {
+  padding: 16px;
+}
+.auth-container {
+  margin: 0px 350px;
+  background-color: #2D354C;
+  color: white;
+  border: 2px border white;
+  border-radius: 30px;
 }
