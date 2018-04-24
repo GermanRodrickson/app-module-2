@@ -22,15 +22,16 @@ function main () {
   };
   const map = new google.maps.Map(container, options);
 
-  axios.get('/matches/json').then(response => {
-    response.data.forEach(spot => {
-      const coordinates = {
-        lat: spot.location.coordinates[0],
-        lng: spot.location.coordinates[1]
-      };
-      setMarker(map, coordinates, spot.name);
+  axios.get('/matches/json')
+    .then(response => {
+      response.data.forEach((spot) => {
+        const coordinates = {
+          lat: spot.location.coordinates[0],
+          lng: spot.location.coordinates[1]
+        };
+        setMarker(map, coordinates, spot.name);
+      });
     });
-  });
 }
 
 window.addEventListener('load', main);
