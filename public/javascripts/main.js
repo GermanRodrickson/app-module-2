@@ -16,6 +16,9 @@ function main () {
     lng: 2.190471916
   };
   const container = document.getElementById('map');
+  const spotName = document.getElementById('spot-name');
+  const spotDescription = document.getElementById('spot-description');
+
   const options = {
     zoom: 15,
     center: ironhackBCN
@@ -28,6 +31,8 @@ function main () {
       lng: response.data.location.coordinates[1]
     };
     setMarker(map, coordinates, response.data.name);
+    spotName.innerText = response.data.name;
+    spotDescription.innerText = response.data.description;
   });
 }
 
