@@ -75,7 +75,7 @@ router.post('/:receiverId', (req, res, next) => {
         return;
       }
     }
-  }
+  } // MECAGONTÓ
 });
 
 module.exports = router;
