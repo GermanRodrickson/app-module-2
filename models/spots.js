@@ -21,7 +21,7 @@ const spotSchema = new Schema({
   }
 });
 
-spotSchema.index({ location: '2dsphere' });
+// spotSchema.index({ location: '2dsphere' }); ASK TAS WHYYYYYYYYY
 
 const Spot = mongoose.model('Spot', spotSchema);
 

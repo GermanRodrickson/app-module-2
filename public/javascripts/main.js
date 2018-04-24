@@ -23,13 +23,11 @@ function main () {
   const map = new google.maps.Map(container, options);
 
   axios.get('/matches/json').then(response => {
-    response.data.forEach(spot => {
-      const coordinates = {
-        lat: spot.location.coordinates[0],
-        lng: spot.location.coordinates[1]
-      };
-      setMarker(map, coordinates, spot.name);
-    });
+    const coordinates = {
+      lat: response.data.location.coordinates[0],
+      lng: response.data.location.coordinates[1]
+    };
+    setMarker(map, coordinates, response.data.name);
   });
 }
 

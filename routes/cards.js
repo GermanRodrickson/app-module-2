@@ -35,7 +35,7 @@ router.post('/:receiverId', (req, res, next) => {
         // If there is no result, create a new match with pending status.
         if (!result) {
           const match = new Match({
-            sender: req.session.currentUser,
+            sender: req.session.currentUser.username,
             receiver: req.params.receiverId,
             status: 'pending'
           });
@@ -48,7 +48,7 @@ router.post('/:receiverId', (req, res, next) => {
 
         // If we are rejected, we go back to the cards page.
         if (result.status === 'rejected') {
-          result.receiver = req.session.currentUser;
+          result.receiver = req.session.currentUser.username;
           res.redirect('/cards');
           return;
         }
@@ -56,7 +56,7 @@ router.post('/:receiverId', (req, res, next) => {
         // If we have a pending request, accept it and set our name in the match database.
         if (result.status === 'pending') {
           result.status = 'accepted';
-          result.receiver = req.session.currentUser;
+          result.receiver = req.session.currentUser.username;
 
           // res.redirect(); <-- REDIRECT TO MATCH INFO
         }
@@ -67,7 +67,7 @@ router.post('/:receiverId', (req, res, next) => {
       // If no request, create match with 'rejected' status.
         if (!result) {
           const match = new Match({
-            sender: req.session.currentUser,
+            sender: req.session.currentUser.username,
             receiver: req.params.receiverId,
             status: 'rejected'
           })
@@ -79,7 +79,7 @@ router.post('/:receiverId', (req, res, next) => {
         }
         // Change pending request to rejected
         if (result.status !== 'accepted') {
-          result.receiver = req.session.currentUser;
+          result.receiver = req.session.currentUser.username;
           result.status = 'rejected';
           res.redirect('/cards');
         }
