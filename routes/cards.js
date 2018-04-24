@@ -58,7 +58,7 @@ router.post('/:receiverId', (req, res, next) => {
           result.status = 'accepted';
           result.receiver = req.session.currentUser.username;
 
-          // res.redirect(); <-- REDIRECT TO MATCH INFO
+          res.redirect('/matches/${result}');
         }
       });
   } else { // If user chooses NO
