@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -17,7 +17,7 @@ const profileRouter = require('./routes/profile');
 const app = express();
 
 // mongoose connect
-mongoose.connect('mongodb://localhost/ironTinder', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   reconnectTries: Number.MAX_VALUE
 });
