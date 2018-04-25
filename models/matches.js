@@ -6,10 +6,12 @@ const ObjectId = Schema.Types.ObjectId;
 
 const matchesSchema = new Schema({
   sender: {
-    type: ObjectId
+    type: ObjectId,
+    ref: 'User'
   },
   receiver: {
-    type: ObjectId
+    type: ObjectId,
+    ref: 'User'
   },
   status: {
     type: String,
