@@ -2,12 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-<<<<<<< HEAD
 const Spot = require('../models/spots');
 const Match = require('../models/matches');
-=======
-const Spot = require('./../models/spots');
->>>>>>> ac032992e76003e4e1581473e8180e0232477120
 
 /* GET home page. */
 
