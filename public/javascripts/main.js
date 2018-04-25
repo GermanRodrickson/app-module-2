@@ -25,6 +25,7 @@ function main () {
   };
   const map = new google.maps.Map(container, options);
 
+<<<<<<< HEAD
   axios.get('/matches/json').then(response => {
     const coordinates = {
       lat: response.data.location.coordinates[0],
@@ -34,6 +35,18 @@ function main () {
     spotName.innerText = response.data.name;
     spotDescription.innerText = response.data.description;
   });
+=======
+  axios.get('/matches/json')
+    .then(response => {
+      response.data.forEach((spot) => {
+        const coordinates = {
+          lat: spot.location.coordinates[0],
+          lng: spot.location.coordinates[1]
+        };
+        setMarker(map, coordinates, spot.name);
+      });
+    });
+>>>>>>> ac032992e76003e4e1581473e8180e0232477120
 }
 
 window.addEventListener('load', main);

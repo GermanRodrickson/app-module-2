@@ -111,10 +111,13 @@ hr {
   border: 2px border white;
   border-radius: 30px;
 }
-.match-info img {
+
+.match-info-img {
   float: left;
 }
 #map {
+  clear:both;
   height: 50vh;
-  width: 130vh;
+  width: 80%;
+  margin: 0 auto;
 }
