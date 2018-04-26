@@ -5,6 +5,10 @@ const router = express.Router();
 const Match = require('../models/matches');
 
 router.get('/', (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
+
   Match.find({
     $and: [
       {status: 'accepted'},
@@ -12,16 +16,15 @@ router.get('/', (req, res, next) => {
         { sender: req.session.currentUser._id },
         { receiver: req.session.currentUser._id }]}
     ]})
+    .populate('receiver sender')
     .then((result) => {
+      const matchUsernames = result.map(results => {
+        return results.sender.username === req.session.currentUser.username ? results.receiver.username : results.sender.username;
+      });
       const data = {
-        name: result.sender !== req.session.currentUser.username || result.sender !== req.session.currentUser.username
-
+        matches: result,
+        usernames: matchUsernames
       };
-
-      // if result.receiver = req.ses.cur.id
-      // data.match = receiver
-      // data.match = sender
-
       res.render('profile/profile', data);
     });
 });

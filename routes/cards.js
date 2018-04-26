@@ -7,49 +7,50 @@ require('mongoose-query-random');
 const User = require('../models/users');
 
 router.get('/', (req, res, next) => {
-  const userId = req.session.currentUser._id;
-  if (req.session.currentUser) {
-    Match.find({
-      status: {$ne: 'accepted'}
-    })
-      .then(result => {
-        const userIdToExclude = result.map(results => {
-          if (results.sender.toString() === userId) {
-            return results.receiver;
-          }
-        });
-
-        userIdToExclude.push(userId);
-
-        User.find({
-          _id: {$nin: userIdToExclude}
-        })
-          .then(result => {
-            const userLength = result.length;
-            const randomUser = result[Math.floor(Math.random() * userLength)];
-            const data = {
-              userId: randomUser._id,
-              username: randomUser.username,
-              age: randomUser.age,
-              gender: randomUser.gender,
-              interestedin: randomUser.interestedin,
-              description: randomUser.description,
-              img: randomUser.picture
-            };
-
-            res.render('cards/cards', data);
-          });
-      })
-      .catch(next);
-  } else {
-    res.redirect('/auth/login');
+  if (!req.session.currentUser) {
+    res.redirect('/');
   }
+  const userId = req.session.currentUser._id;
+  Match.find({
+    status: {$ne: 'accepted'}
+  })
+    .then(result => {
+      const userIdToExclude = result.map(results => {
+        if (results.sender.toString() === userId) {
+          return results.receiver;
+        }
+      });
+
+      userIdToExclude.push(userId);
+
+      return User.find({
+        _id: {$nin: userIdToExclude}
+      })
+        .then(result => {
+          const userLength = result.length;
+          const randomUser = result[Math.floor(Math.random() * userLength)];
+          const data = {
+            userId: randomUser._id,
+            username: randomUser.username,
+            age: randomUser.age,
+            gender: randomUser.gender,
+            interestedin: randomUser.interestedin,
+            description: randomUser.description,
+            img: randomUser.picture
+          };
+
+          res.render('cards/cards', data);
+        })
+        .catch(next);
+    });
 });
 
 // MATCH REQUESTS
 
 router.post('/:userId', (req, res, next) => {
-  // check if the user is logged in
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
   const choice = req.body.choice === 'yes';
 
   Match.findOne({

@@ -1,5 +1,7 @@
 <h1>Profile</h1>
   <p>{{user.username}}</p>
-  <p>{{user._id}}</p>
-  <p>{{user.password}}</p>
 <h2>Matches</h2>
+
+
+<a href="/matches/{{#each matches}}{{id}}{{/each}}">
+{{#each usernames}}<p>{{this}}</p>{{/each}}</a>
