@@ -77,7 +77,9 @@ p {
   font-size: 15px;
 }
 
-
+button:hover {
+  box-shadow:1px 1px 30px 1px rgb(255, 134, 134); 
+}
 /* ---- FOOTER ---- */
 #footer {
   color:grey;
@@ -112,6 +114,16 @@ hr {
 }
 .social-media img {
   padding: 16px;
+}
+
+.index-button-container {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.index-button-container button{
+  width: 100%;
+  padding: 20px 0;
 }
 
 /* ---- AUTH-CONTAINER ---- */
