@@ -21,7 +21,7 @@ router.get('/', (req, res, next) => {
 
         userIdToExclude.push(userId);
 
-        User.find({
+        return User.find({
           _id: {$nin: userIdToExclude}
         })
           .then(result => {
@@ -30,9 +30,9 @@ router.get('/', (req, res, next) => {
             const data = { userId: randomUser._id, username: randomUser.username };
 
             res.render('cards/cards', data);
-          });
-      })
-      .catch(next);
+          })
+          .catch(next);
+      });
   } else {
     res.redirect('/auth/login');
   }

@@ -21,16 +21,10 @@ router.get('/:matchId', (req, res, next) => {
   Match.findById(req.params.matchId)
     .then(result => {
       const data = {
+        matchId: result._id,
         status: result.status
       };
       res.render('matches/matches', data);
-    });
-});
-
-router.get('/json', function (req, res, next) {
-  Spot.find({})
-    .then(result => {
-      res.json(result);
     })
     .catch(next);
 });
