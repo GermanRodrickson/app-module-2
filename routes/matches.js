@@ -8,6 +8,9 @@ const Match = require('../models/matches');
 /* GET home page. */
 
 router.get('/json', (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
   Spot.find()
     .then(result => {
       const spotLength = result.length;
@@ -18,6 +21,9 @@ router.get('/json', (req, res, next) => {
 });
 
 router.get('/:matchId', (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
   Match.findById(req.params.matchId)
     .then(result => {
       const data = {

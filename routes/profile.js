@@ -5,7 +5,9 @@ const router = express.Router();
 const Match = require('../models/matches');
 
 router.get('/', (req, res, next) => {
-  // check if the user is logged in
+  if (!req.session.currentUser) {
+    res.redirect('/');
+  }
 
   Match.find({
     $and: [
