@@ -9,7 +9,6 @@
   "node": "9.11.1",
   "npm": "5.6.0"
   },
-  
   "dependencies": {
     "bcrypt": "^2.0.0",
     "connect-mongo": "^2.0.1",

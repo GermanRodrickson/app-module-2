@@ -3,6 +3,7 @@
 
 html {
   box-sizing: border-box;
+  min-height: 100vh;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -34,12 +35,10 @@ p {
 
 
 
-/* ---- layout ---- */
 
-
-/*NAV BAR*/
+/* ---- NAV BAR ---- */
 #navbar, #footer{
-  width: 100%;
+  width: 100vw;
   padding: 20px;
   background-color:#32C3FF;
 }
@@ -58,13 +57,17 @@ p {
   float:right;
 }
 
-/*BODY*/
+
+/* ---- BODY ---- */
 .container {
   background-color: #ffff;
   padding: 40px;
   text-align: center;
 }
 
+
+
+/* ---- BUTTON ---- */
 .button {
   padding: 10px;
   border: none;
@@ -73,9 +76,15 @@ p {
   color:white;
   font-size: 15px;
 }
+
+
+/* ---- FOOTER ---- */
 #footer {
   color:grey;
 }
+
+
+/* ---- INDEX-PAGE ---- */
 .quotes-people {
   text-align: left;
   margin-top: 50px;
@@ -104,20 +113,85 @@ hr {
 .social-media img {
   padding: 16px;
 }
+
+/* ---- AUTH-CONTAINER ---- */
+
 .auth-container {
-  margin: 0px 350px;
-  background-color: #2D354C;
-  color: white;
-  border: 2px border white;
-  border-radius: 30px;
+  max-width: 400px;
+  color: #ff5252;
+  padding: 10px;
+  margin: 0 5%;
+  padding-top: 10px;
+  background-color: rgba(0,0,5,0.5);
+  margin: 0 auto;
+  border-radius: 10px;
 }
+input[type=text], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+form label {
+  font-weight:bold; 
+  font-size: 25px;
+}
+input[type=password], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+textarea {
+  font-size: 20px;
+  width: 80%;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.background-auth {
+  background-image: url('../images/Iron.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+  min-height: 90vh;
+}
+
+.button-auth {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff5252; 
+  color:white;
+  font-size: 15px;
+  width: 30%;
+}
+
+.center-login {
+  margin-top: 10%
+}
+
+/* ---- MATCH ---- */
 
 .match-info-img {
   float: left;
 }
+
+/* ---- MAP ---- */
 #map {
   clear:both;
   height: 50vh;
   width: 80%;
   margin: 0 auto;
 }
+

@@ -27,7 +27,15 @@ router.get('/', (req, res, next) => {
           .then(result => {
             const userLength = result.length;
             const randomUser = result[Math.floor(Math.random() * userLength)];
-            const data = { userId: randomUser._id, username: randomUser.username };
+            const data = {
+              userId: randomUser._id,
+              username: randomUser.username,
+              age: randomUser.age,
+              gender: randomUser.gender,
+              interestedin: randomUser.interestedin,
+              description: randomUser.description,
+              img: randomUser.picture
+            };
 
             res.render('cards/cards', data);
           });

@@ -17,10 +17,7 @@ const profileRouter = require('./routes/profile');
 const app = express();
 
 // mongoose connect
-mongoose.connect(process.env.MONGODB_URI, {
-  keepAlive: true,
-  reconnectTries: Number.MAX_VALUE
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

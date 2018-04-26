@@ -42,12 +42,28 @@ router.post('/signup', (req, res, next) => {
         return res.redirect('/auth/signup');
       }
 
+      let img;
+      const womenImgs = ['/images/profile-images/women1.jpeg', '/images/profile-images/women2.jpeg', '/images/profile-images/women3.jpg', '/images/profile-images/women4.jpg', '/images/profile-images/women5.jpg', '/images/profile-images/women6.jpg'];
+      const manImgs = ['/images/profile-images/men1.jpg', '/images/profile-images/men2.jpeg', '/images/profile-images/men3.jpg', '/images/profile-images/men4.jpg', '/images/profile-images/men5.jpg', '/images/profile-images/men6.jpg'];
+
+      if (req.body.gender === 'Women') {
+        img = womenImgs[Math.floor(Math.random() * womenImgs.length)];
+      } else {
+        img = manImgs[Math.floor(Math.random() * manImgs.length)];
+      }
+
       const salt = bcrypt.genSaltSync(bcryptSalt);
       const hashPass = bcrypt.hashSync(req.body.password, salt);
 
       const newUser = new User({
         username: req.body.username,
-        password: hashPass
+        password: hashPass,
+        picture: img,
+        age: req.body.age,
+        email: req.body.email,
+        gender: req.body.gender,
+        interestedin: req.body.interestedin,
+        description: req.body.description
       });
       newUser
         .save()

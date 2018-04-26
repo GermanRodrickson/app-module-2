@@ -11,8 +11,32 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  age: {
+    type: Number,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  gender: {
+    type: String,
+    enum: ['Women', 'Men'],
+    required: true
+  },
+  interestedin: {
+    type: String,
+    enum: ['Women', 'Men', 'Both'],
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  picture: {
+    type: String
   }
-
 });
 
 const User = mongoose.model('User', userSchema);

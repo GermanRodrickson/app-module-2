@@ -15,13 +15,13 @@ const spotSchema = new Schema({
   location: {
     type: {
       type: String,
-      required: true
+      default: 'Point'
     },
     coordinates: [Number]
   }
 });
 
-// spotSchema.index({ location: '2dsphere' }); ASK TAS WHYYYYYYYYY
+// spotSchema.index({ location: '2dsphere' });
 
 const Spot = mongoose.model('Spot', spotSchema);
 

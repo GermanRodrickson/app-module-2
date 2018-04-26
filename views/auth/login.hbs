@@ -1,19 +1,26 @@
-<div class="auth-container">
+<div class="background-auth">
+<div class="auth-container center-login" >
   <h1>Log in</h1>
   <form method="POST" action="/auth/login">
     <div class="field">
-      <label>Username</label>
-      <input type="text" name="username" />
+      <input type="text" name="username" placeholder="Username*" />
     </div>
 
     <div class="field">
-      <label>Password</label>
-      <input type="password" name="password" />
+      <input type="password" name="password" placeholder="Password*" />
      </div>
 
     <div class="field submit">
-      <button type="submit">Sign up</button>
+      <button type="submit" class="button-auth">Log in</button>
     </div>
   </form>
 </div>
+</div>
+
+<script>
+
+  const parentContainer = document.querySelector('.container');
+  parentContainer.style.padding = "0px";
+
+</script>
 
