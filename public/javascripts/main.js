@@ -23,27 +23,32 @@ function startMarkerRoulette (map) {
     spot: null,
     matchId
   };
+  let markerStatus;
 
   var markerRouletteId = window.setInterval(() => {
     if (interval <= 1500) {
-      axios.get('/matches/json').then(response => {
-        data.spot = response.data;
+      axios.post('/matches/json', {matchId}).then(response => {
+        data.spot = response.data.spot;
         coordinates = {
-          lat: response.data.location.coordinates[0],
-          lng: response.data.location.coordinates[1]
+          lat: response.data.spot.location.coordinates[0],
+          lng: response.data.spot.location.coordinates[1]
         };
-        marker = setMarker(map, coordinates, response.data.name);
-        spotName.innerText = response.data.name + ' at 18:00';
-        spotDescription.innerText = response.data.description;
+        marker = setMarker(map, coordinates, response.data.spot.name);
+        spotName.innerText = response.data.spot.name + ' at 18:00';
+        spotDescription.innerText = response.data.spot.description;
+        markerStatus = response.data.status !== 'existing' ? null : 'existing';
       });
       marker.setMap(null);
       interval += 100;
     } else {
       window.clearInterval(markerRouletteId);
+      markerStatus = 'existing';
+      axios.post('/matches/savespot', data);
+    }
+    if (markerStatus === 'existing') {
       map.setCenter(coordinates);
       map.setZoom(19);
-
-      axios.post('/matches/savespot', data);
+      window.clearInterval(markerRouletteId);
     }
   }, interval);
 }
