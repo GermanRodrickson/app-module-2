@@ -1,12 +1,27 @@
+<section class="profile-background">
+<div class="profile">
 <h1>Profile</h1>
-  <p><img src="{{user.picture}}" alt="melon"></p>
-  <p>Name: {{user.username}}</p>
+
+  <div class="profile-only-text">
+  <img src="{{user.picture}}" alt="melon" class="cards-circle">
+  <p>Username: {{user.username}}</p>
   <p>Age: {{user.age}}</p>
   <p>Gender: {{user.gender}}</p>
   <p>Interested in: {{user.interestedin}}</p>
   <p>Description: {{user.description}}</p>
+  </div>
+</div>
 <h2>Matches</h2>
 
-
+<div class="matches">
 <a href="/matches/{{#each matches}}{{id}}{{/each}}">
 {{#each usernames}}<p>{{this}}</p>{{/each}}</a>
+</div>
+</section>
+
+<script>
+
+  const parentContainer = document.querySelector('.container');
+  parentContainer.style.padding = "0px";
+
+</script>

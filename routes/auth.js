@@ -50,7 +50,7 @@ router.post('/signup', (req, res, next) => {
       const womenImgs = ['/images/profile-images/women1.jpeg', '/images/profile-images/women2.jpeg', '/images/profile-images/women3.jpg', '/images/profile-images/women4.jpg', '/images/profile-images/women5.jpg', '/images/profile-images/women6.jpg'];
       const manImgs = ['/images/profile-images/men1.jpg', '/images/profile-images/men2.jpeg', '/images/profile-images/men3.jpg', '/images/profile-images/men4.jpg', '/images/profile-images/men5.jpeg', '/images/profile-images/men6.jpeg'];
 
-      if (req.body.gender === 'Women') {
+      if (req.body.gender === 'Woman') {
         img = womenImgs[Math.floor(Math.random() * womenImgs.length)];
       } else {
         img = manImgs[Math.floor(Math.random() * manImgs.length)];

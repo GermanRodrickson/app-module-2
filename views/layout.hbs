@@ -12,7 +12,7 @@
 
 <body>
   <nav id="navbar">
-    <div class="nav-left"><a href="/">Image</a></div>
+    <div class="nav-left"><a href="/"><img src="../images/ironhack.png" height="50px"></a></div>
     {{#if user}}
     <div class="nav-right">
       <a href="/profile">{{user.username}}</a>
@@ -33,6 +33,10 @@
   <section class="container">
     {{{body}}}
   </section>
+
+  <footer id="footer">
+    &copy; Created and designed by Germán and Matias.
+  </footer>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbd1wEUftm4XYLExy6MwHR8trFvSR_rS0"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>

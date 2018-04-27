@@ -39,7 +39,7 @@ p {
 /* ---- NAV BAR ---- */
 #navbar, #footer{
   width: 100vw;
-  padding: 20px;
+  padding: 8px;
   background-color:#32C3FF;
 }
 
@@ -75,10 +75,15 @@ p {
   background-color: #ff5252; 
   color:white;
   font-size: 15px;
+  box-shadow: 0px 6px 0px #d35400;
 }
 
 button:hover {
-  box-shadow:1px 1px 30px 1px rgb(255, 134, 134); 
+ -webkit-box-shadow: 0px 2px 0px #d35400;
+ -moz-box-shadow: 0px 2px 0px #d35400;
+ box-shadow: 0px 2px 0px #d35400;
+ position:relative;
+ top:4px;
 }
 /* ---- FOOTER ---- */
 #footer {
@@ -87,6 +92,12 @@ button:hover {
 
 
 /* ---- INDEX-PAGE ---- */
+.user-img {
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
+}
+
 .quotes-people {
   text-align: left;
   margin-top: 50px;
@@ -99,6 +110,10 @@ button:hover {
 .span-name {
   color:#ff5252;
   font-style: none;
+}
+
+.quotes-people-text {
+  padding-top: 30px;
 }
 
 .title-text {
@@ -139,14 +154,14 @@ hr {
   border-radius: 10px;
 }
 input[type=text], select {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 20px;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 form label {
   font-weight:bold; 
@@ -186,7 +201,16 @@ textarea {
   background-color: #ff5252; 
   color:white;
   font-size: 15px;
+  box-shadow: 0px 6px 0px #d35400;
   width: 30%;
+}
+
+.button-auth:hover {
+ -webkit-box-shadow: 0px 2px 0px #d35400;
+ -moz-box-shadow: 0px 2px 0px #d35400;
+ box-shadow: 0px 2px 0px #d35400;
+ position:relative;
+ top:4px;
 }
 
 .center-login {
@@ -199,6 +223,35 @@ textarea {
   float: left;
 }
 
+/* ---- CARDS ---- */
+
+.cards-circle {
+  border-radius: 50%;
+  width: 250px;
+  max-width: 150px;
+  box-shadow: 0px 2px 2px black;
+}
+
+.background-cards {
+  background: url('../images/pitos blancos.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+  min-height: 90vh;
+}
+
+.cards-users {
+  max-width: 400px;
+  background: url('../images/backgroundmierda.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 10px; 
+  color: white;
+  margin-top: 5%;
+  width: 80vw;
+}
 /* ---- MAP ---- */
 #map {
   clear:both;
@@ -207,3 +260,97 @@ textarea {
   margin: 0 auto;
 }
 
+/* ---- PROFILE ---- */
+
+.profile-background {
+  background: url('../images/backgroundmierda.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 90vh;
+}
+.profile h1{
+  margin: 0px;
+  font-size: 40px;
+}
+.profile-only-text {
+  max-width: 400px;
+  padding: 10px;
+  padding-top: 10px;
+  background-color: rgba(0,0,5,0.5);
+  margin: 0 auto;
+  border-radius: 10px;
+  color: rgb(202, 199, 199)
+}
+.profile-img {
+  margin-top: -50px; 
+}
+.profile {
+  padding-top: 30px;
+}
+.matches {
+  max-width: 400px;
+  padding-top: 10px;
+  background-color: rgba(0,0,5,0.5);
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+input[type="checkbox"]:active:after {
+  border-radius: 100%;
+  margin: -10px;
+  width: 17px;
+  height: 17px;
+  padding: 8px;
+  content: '';
+  display: inline-block;
+}
+
+input[type="checkbox"]:after, input[type="checkbox"]:active:after:after {
+  border-radius: 2px;
+  width: 9px;
+  height: 9px;
+  padding: 2px;
+  box-shadow: 0 0 0 2px #EEE;
+  content: '';
+  display: inline-block;
+}
+
+/* input[type="checkbox"]:checked:after {
+  border-radius: 100%;
+  margin: -10px;
+  width: 17px;
+  height: 17px;
+  padding: 8px;
+  box-shadow: 0 0 0 8px #F9F9F9;
+  content: '';
+  display: inline-block;
+} */
+.row {
+  display: inline-block; 
+}
+
+input[type="checkbox"] {
+  margin: 0 auto;
+	background: #EEE;
+	box-shadow: 0 0 0 0 #009688 inset, 0 0 0 2px #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
+	padding: 8px;
+	border-radius: 2px;
+  display: block;
+  transition: all .2s;
+  zoom: 2;
+}
+
+input[type="checkbox"]:active {
+	background: #ddd;
+	/* box-shadow: 0 0 0 0 #009688 inset, 0 0 0 2px #666666 inset, 0 0 0 0 #EEE inset, 0 0 0 8px #ddd inset, 0 0 0 12px #ddd; */
+}
+
+input[type="checkbox"]:checked:active {
+	background: #009688;
+}
+
+input[type="checkbox"]:checked {
+	background: #F9F9F9;
+	box-shadow: 0 0 0 8px #009688 inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
+  content: url(https://i.imgur.com/OrSqEu5.png);
+}

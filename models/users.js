@@ -22,7 +22,7 @@ const userSchema = new Schema({
   },
   gender: {
     type: String,
-    enum: ['Women', 'Men'],
+    enum: ['Woman', 'Man'],
     required: true
   },
   interestedin: {

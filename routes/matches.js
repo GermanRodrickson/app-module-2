@@ -28,7 +28,8 @@ router.get('/:matchId', (req, res, next) => {
     .then(result => {
       const data = {
         matchId: result._id,
-        status: result.status
+        status: result.status,
+        img: result.picture
       };
       res.render('matches/matches', data);
     })

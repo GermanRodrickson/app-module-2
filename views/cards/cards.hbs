@@ -1,15 +1,16 @@
-<section>
+<section class="background-cards">
+  <div class="cards-users">
   <div class = "profile-img">
-    <img src="{{img}}" alt="melon">
+    <img src="{{img}}" alt="melon" class="cards-circle" width="250px">
   </div>
   <div>
-    <p>Name: {{username}}</p>
-    <p>Age: {{age}}</p>
+    <p>{{username}}, {{age}}</p>
+      <br>
     <p>Gender: {{gender}}</p>
     <p>Interested in: {{interestedin}}</p>
     <p>Description: {{description}}</p>
   </div>
-  <div>
+  <div class="row">
     <form method="POST" action="/cards/{{this.userId}}">
         <input type="checkbox" name="choice" value="no" onchange="this.form.submit()">
         <em>No</em>
@@ -17,4 +18,13 @@
         <em>Yes</em>
     </form>
   </div>
+  </div>
 </section>
+
+
+<script>
+
+  const parentContainer = document.querySelector('.container');
+  parentContainer.style.padding = "0px";
+
+</script>
