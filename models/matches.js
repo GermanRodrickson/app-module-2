@@ -18,7 +18,8 @@ const matchesSchema = new Schema({
     enum: ['pending', 'accepted', 'rejected']
   },
   spot: {
-    type: ObjectId
+    type: ObjectId,
+    ref: 'Spot'
   }
 });
 

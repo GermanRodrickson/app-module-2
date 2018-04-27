@@ -27,6 +27,10 @@ router.get('/', (req, res, next) => {
         _id: {$nin: userIdToExclude}
       })
         .then(result => {
+          if (!result.length) {
+            res.render('cards/outofcards');
+            return;
+          }
           const userLength = result.length;
           const randomUser = result[Math.floor(Math.random() * userLength)];
           const data = {

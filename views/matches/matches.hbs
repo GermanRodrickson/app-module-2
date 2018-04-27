@@ -1,7 +1,8 @@
 <section>
   <div class = "match-info">
-    <img src="../images/Man_Silhouette.png" width="200px">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto repudiandae at possimus, recusandae totam laudantium quia tempore nostrum, quod, nulla et laborum ut dolorum eveniet aperiam nesciunt! Repellendus, vero at.</p>
+    <img src="{{matchUser.picture}}" width="200px">
+    <p>Your match: {{matchUser.username}}</p>
+    <p>{{matchUser.description}}</p>
   </div>
 </section>
 <section class="container">
@@ -10,10 +11,10 @@
   <div>
     <p id = "spot-name"></p>
     <p id = "spot-description"></p>
+    <p>Good luck!</p>
   <a href="/cards" class="button">Back</a>
   </div>
-<section>
-
-</section>
+  <span id="matchid" name="{{matchId}}"></span>
+  <span id="spotid" name="{{spot}}"></span>
 
 <script src="/javascripts/main.js"></script>

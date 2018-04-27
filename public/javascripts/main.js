@@ -13,22 +13,27 @@ function setMarker (map, position, title) {
 function startMarkerRoulette (map) {
   const spotName = document.getElementById('spot-name');
   const spotDescription = document.getElementById('spot-description');
+  const matchIdElement = document.getElementById('matchid');
+  const matchId = matchIdElement.getAttribute('name');
 
   let interval = 200;
   let marker;
   let coordinates;
-  let spot;
+  let data = {
+    spot: null,
+    matchId
+  };
 
   var markerRouletteId = window.setInterval(() => {
     if (interval <= 1500) {
       axios.get('/matches/json').then(response => {
-        spot = response.data;
+        data.spot = response.data;
         coordinates = {
           lat: response.data.location.coordinates[0],
           lng: response.data.location.coordinates[1]
         };
         marker = setMarker(map, coordinates, response.data.name);
-        spotName.innerText = response.data.name;
+        spotName.innerText = response.data.name + ' at 18:00';
         spotDescription.innerText = response.data.description;
       });
       marker.setMap(null);
@@ -38,7 +43,7 @@ function startMarkerRoulette (map) {
       map.setCenter(coordinates);
       map.setZoom(19);
 
-      // axios.post('/matches/savespot', spot);
+      axios.post('/matches/savespot', data);
     }
   }, interval);
 }
