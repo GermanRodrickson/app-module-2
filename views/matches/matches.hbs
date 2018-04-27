@@ -1,21 +1,21 @@
 <section class="background-cards">
+<div id="map" class="map-border"> </div>
   <div class = "match-info">
     <img src="{{matchUser.picture}}" width="200px" class="cards-circle">
-    <p>Your match: {{matchUser.username}}</p>
-    <p>{{matchUser.description}}</p>
+    <p>Your match: {{matchUser.username}}, {{matchUser.age}}</p>
+    <p>Gender: {{matchUser.gender}}</p>
+    <p>Interested in: {{matchUser.interestedin}}</p>
+    <p>Description: {{matchUser.description}}</p>
   </div>
-<section>
-  <div id="map" class="map-border">
-  </div>
-  <div class="text-matches">
+  <div class="match-info">
     <p id = "spot-name"></p>
     <p id = "spot-description"></p>
     <p>Good luck!</p>
-  <a href="/cards" class="button">Back</a>
   </div>
   <span id="matchid" name="{{matchId}}"></span>
   <span id="spotid" name="{{spot}}"></span>
 
+  <div class="button-back"><a href="/cards" class="button">Back</a></div>
 <script src="/javascripts/main.js"></script>
 </section>
 
