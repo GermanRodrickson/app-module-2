@@ -219,8 +219,8 @@ textarea {
 
 /* ---- MATCH ---- */
 
-.match-info-img {
-  float: left;
+.match-info {
+  margin-top: 30px;
 }
 
 /* ---- CARDS ---- */
@@ -271,6 +271,7 @@ textarea {
 .profile h1{
   margin: 0px;
   font-size: 40px;
+  margin-bottom: 15px;
 }
 .profile-only-text {
   max-width: 400px;
@@ -295,6 +296,11 @@ textarea {
   border-radius: 10px;
 }
 
+.matches a {
+  text-decoration: none;
+  color: rgb(202, 199, 199) 
+}
+
 input[type="checkbox"]:active:after {
   border-radius: 100%;
   margin: -10px;
@@ -304,6 +310,8 @@ input[type="checkbox"]:active:after {
   content: '';
   display: inline-block;
 }
+
+
 
 input[type="checkbox"]:after, input[type="checkbox"]:active:after:after {
   border-radius: 2px;
@@ -315,22 +323,12 @@ input[type="checkbox"]:after, input[type="checkbox"]:active:after:after {
   display: inline-block;
 }
 
-/* input[type="checkbox"]:checked:after {
-  border-radius: 100%;
-  margin: -10px;
-  width: 17px;
-  height: 17px;
-  padding: 8px;
-  box-shadow: 0 0 0 8px #F9F9F9;
-  content: '';
-  display: inline-block;
-} */
-.row {
-  display: inline-block; 
+.form-cards {
+  display: flex; 
 }
 
 input[type="checkbox"] {
-  margin: 0 auto;
+  margin: 0 0 0 45px;
 	background: #EEE;
 	box-shadow: 0 0 0 0 #009688 inset, 0 0 0 2px #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
 	padding: 8px;
@@ -338,6 +336,7 @@ input[type="checkbox"] {
   display: block;
   transition: all .2s;
   zoom: 2;
+
 }
 
 input[type="checkbox"]:active {
@@ -353,4 +352,16 @@ input[type="checkbox"]:checked {
 	background: #F9F9F9;
 	box-shadow: 0 0 0 8px #009688 inset, 0 0 0 0 #666666 inset, 0 0 0 8px #EEE inset, 0 0 0 0 #ddd inset, 0 0 0 0 #ddd;
   content: url(https://i.imgur.com/OrSqEu5.png);
+}
+
+input[type="checkbox"]:hover {
+  background: red
+}
+
+.map-border {
+  box-shadow: 0px 2px 2px black;
+}
+
+.text-matches {
+  margin: 20px;
 }

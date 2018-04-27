@@ -11,7 +11,7 @@
     <p>Description: {{description}}</p>
   </div>
   <div class="row">
-    <form method="POST" action="/cards/{{this.userId}}">
+    <form method="POST" action="/cards/{{this.userId}}" class="form-cards">
         <input type="checkbox" name="choice" value="no" onchange="this.form.submit()">
         <em>No</em>
         <input type="checkbox" name="choice" value="yes" onchange="this.form.submit()">

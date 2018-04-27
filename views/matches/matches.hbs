@@ -1,19 +1,27 @@
-<section>
+<section class="background-cards">
   <div class = "match-info">
-    <img src="{{picture}}" alt="melon" class="cards-circle" width="250px">
-    <p>{{user.username}}</p>
+    <img src="{{matchUser.picture}}" width="200px" class="cards-circle">
+    <p>Your match: {{matchUser.username}}</p>
+    <p>{{matchUser.description}}</p>
   </div>
-</section>
-<section class="container">
-  <div id="map">
+<section>
+  <div id="map" class="map-border">
   </div>
-  <div>
+  <div class="text-matches">
     <p id = "spot-name"></p>
     <p id = "spot-description"></p>
+    <p>Good luck!</p>
   <a href="/cards" class="button">Back</a>
   </div>
-<section>
-
-</section>
+  <span id="matchid" name="{{matchId}}"></span>
+  <span id="spotid" name="{{spot}}"></span>
 
 <script src="/javascripts/main.js"></script>
+</section>
+
+<script>
+
+  const parentContainer = document.querySelector('.container');
+  parentContainer.style.padding = "0px";
+
+</script>
