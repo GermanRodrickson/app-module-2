@@ -7,17 +7,32 @@ const Match = require('../models/matches');
 
 /* GET home page. */
 
-router.get('/json', (req, res, next) => {
+router.post('/json', (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect('/');
   }
-  Spot.find()
+  Match.findById(req.body.matchId)
+    .populate('spot')
     .then(result => {
-      const spotLength = result.length;
-      const randomSpot = result[Math.floor(Math.random() * spotLength)];
-      res.json(randomSpot);
-    })
-    .catch(next);
+      if (result.spot) {
+        const data = {
+          spot: result.spot,
+          status: 'existing'
+        };
+        res.json(data);
+      } else {
+        return Spot.find()
+          .then(result => {
+            const spotLength = result.length;
+            const randomSpot = result[Math.floor(Math.random() * spotLength)];
+            const data = {
+              spot: randomSpot
+            };
+            res.json(data);
+          })
+          .catch(next);
+      }
+    }).catch(next);
 });
 
 router.post('/savespot', (req, res, next) => {
