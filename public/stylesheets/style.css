@@ -220,7 +220,18 @@ textarea {
 /* ---- MATCH ---- */
 
 .match-info {
-  margin-top: 30px;
+  max-width: 400px;
+  padding: 10px;
+  padding-top: 10px;
+  background-color: rgba(0,0,5,0.7);
+  margin: 30px auto;
+  border-radius: 10px;
+  color: white;
+  display: inline-block
+}
+
+.match-info img {
+  margin-top: -40px;
 }
 
 /* ---- CARDS ---- */
@@ -366,6 +377,15 @@ input[type="checkbox"]:hover {
   margin: 20px;
 }
 
+<<<<<<< HEAD
 .row {
   padding-top: 30px;
+=======
+.button-back a{
+  text-decoration: none;
+}
+
+.button-back {
+  padding-bottom: 30px;
+>>>>>>> 260ef301800cf3a3da4b0ca8981031d7760965ad
 }
